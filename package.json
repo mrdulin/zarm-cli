@@ -1,0 +1,35 @@
+{
+  "name": "zarm-design",
+  "private": true,
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna clean -y",
+    "lint:js": "eslint --ext .ts,.tsx,.js,.jsx packages",
+    "lint:style": "stylelint \"packages/**/*.scss\" --syntax scss",
+    "lint": "npm run lint:js",
+    "dev": "lerna run dev"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "2.5.0",
+    "@typescript-eslint/parser": "2.5.0",
+    "babel-eslint": "10.0.3",
+    "eslint": "6.5.1",
+    "eslint-config-za": "2.1.0",
+    "eslint-plugin-babel": "5.3.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.16.0",
+    "eslint-plugin-react-hooks": "2.2.0",
+    "eslint-plugin-vue": "5.2.3",
+    "husky": "^4.0.10",
+    "lerna": "^3.20.2",
+    "lerna-changelog": "^1.0.0",
+    "lint-staged": "^10.0.1",
+    "stylelint": "13.0.0",
+    "stylelint-checkstyle-formatter": "0.1.2",
+    "stylelint-config-za": "0.1.0",
+    "typescript": "3.6.4"
+  }
+}
