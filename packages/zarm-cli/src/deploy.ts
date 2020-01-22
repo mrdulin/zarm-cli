@@ -16,10 +16,12 @@ export interface IDeployConfig {
 }
 
 export const getProjectConfig = (config: Configuration) => {
-  const { entries, setBabelOptions, banner, ...webpackConfig } = getCustomConfig();
+  const { entries, setBabelOptions, banner, setRules, setPlugins, ...webpackConfig } = getCustomConfig();
 
   config.entry = {};
   setBabelOptions && setBabelOptions(config.module.rules[0].use[0].options);
+  setRules && setRules(config.module.rules);
+  setPlugins && setPlugins(config.plugins);
 
   Object.keys(entries || {}).forEach((key) => {
     if (entries[key].entry) {

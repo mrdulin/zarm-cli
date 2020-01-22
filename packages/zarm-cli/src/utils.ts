@@ -27,9 +27,11 @@ const getProjectPath = (dir = './'): string => {
 };
 
 export interface CustomConfig extends Configuration {
-  entries?: any;
+  entries?: object;
   banner?: string;
   setBabelOptions?: (options) => void;
+  setRules?: (rules) => void;
+  setPlugins?: (plugins) => void;
 }
 
 // 获取项目文件

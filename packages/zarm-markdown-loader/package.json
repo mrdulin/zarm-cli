@@ -1,0 +1,23 @@
+{
+  "name": "zarm-markdown-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "zarm dev -p 3002",
+    "build:esm": "zarm build -p src/index.js -d es -m es -e .js",
+    "build:cjs": "zarm build -p src/index.js -d lib -m lib -e .js",
+    "build:umd": "zarm build -p src/index.js -d dist -m umd -e .js && zarm build -p src/index.js -d dist -m umd-ugly -e .js",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:umd"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@zarm-design/cli": "^0.0.18"
+  },
+  "dependencies": {
+    "jsonml-to-react-element": "^1.1.11",
+    "mark-twain": "^2.0.3",
+    "marked": "^0.8.0"
+  }
+}

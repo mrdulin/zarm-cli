@@ -130,10 +130,10 @@ const config: Configuration = {
           },
         ],
       },
-      {
-        test: /\.md$/,
-        use: require.resolve('raw-loader'),
-      },
+      // {
+      //   test: /\.md$/,
+      //   use: require.resolve('raw-loader'),
+      // },
     ],
   },
 
