@@ -1,7 +1,7 @@
 class ZarmDocPlugin {
   apply = (compiler) => {
     compiler.hooks.emit.tapAsync('ConsoleLogOnBuildWebpackPlugin', (compilation, callback) => {
-      console.log();
+      // console.log(compilation);
       callback();
     });
   };

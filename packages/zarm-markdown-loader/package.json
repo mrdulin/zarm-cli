@@ -1,7 +1,7 @@
 {
   "name": "zarm-markdown-loader",
   "version": "1.0.0",
-  "description": "",
+  "description": "A markdown loader for zarm docs",
   "main": "index.js",
   "scripts": {
     "dev": "zarm dev -p 3002",
@@ -13,7 +13,10 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@zarm-design/cli": "^0.0.18"
+    "@zarm-design/cli": "^0.0.18",
+    "raw-loader": "^4.0.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "dependencies": {
     "jsonml-to-react-element": "^1.1.11",
