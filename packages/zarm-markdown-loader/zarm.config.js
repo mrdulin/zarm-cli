@@ -17,7 +17,7 @@ module.exports = {
       ],
     });
   },
-  // setPlugins: (plugins) => {
-  //   plugins.push(new ZarmDocPlugin());
-  // },
+  setPlugins: (plugins) => {
+    plugins.push(new ZarmDocPlugin());
+  },
 };
