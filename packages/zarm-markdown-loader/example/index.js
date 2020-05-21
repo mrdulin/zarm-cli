@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import toReactElement from 'jsonml-to-react-element';
 import md from './demo.md';
 
+console.log(md);
+
 let result = [];
 let tempArr = [];
 
@@ -25,7 +27,7 @@ md.content.forEach((element) => {
 });
 result = result.concat(tempArr.splice(1));
 
-console.log(result);
+// console.log(result);
 
 const toDemo = [
   [
