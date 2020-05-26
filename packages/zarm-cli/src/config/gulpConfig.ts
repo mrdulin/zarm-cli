@@ -19,7 +19,9 @@ const gulpTask = (path?: string, outDir?: string, callback?: () => void) => {
   gulp.task('sass', () => {
     sass.compiler = require('sass');
     return gulp.src(DIR.sass)
-      .pipe(sass().on('error', sass.logError))
+      .pipe(sass({
+        includePaths: ['node_modules'],
+      }).on('error', sass.logError))
       .pipe(gulp.dest(outDir));
   });
 
