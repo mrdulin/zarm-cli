@@ -18,15 +18,14 @@ export default async ({ mode, host, port }: IDevelopmentConfig) => {
     const args = [
       require.resolve('@babel/cli/bin/babel'),
       'components',
-      '-d', 'components',
-      '-m', 'es6',
+      '-d', 'rnkit/zarm',
       '-w',
       '--extensions', '.ts,.tsx',
-      '--config-file', require.resolve('./config/babelConfig/native'),
-      '--jsx', 'react-native',
+      '--config-file', require.resolve('./config/babelConfig/base'),
     ];
 
     const { stderr, exitCode } = await execa('node', args);
+
     if (exitCode !== 0) {
       process.stderr.write(stderr);
       process.exit(0);

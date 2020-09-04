@@ -124,10 +124,6 @@ const buildLibrary = async ({ mode, path, ext, outFile, outDir, copyFiles, build
     args.push('--out-file', outFile);
   }
 
-  if (mode === 'native') {
-    args.push('--jsx', 'react-native');
-  }
-
   barActive.process('building...');
 
   const { stderr, exitCode } = await execa('node', args);
