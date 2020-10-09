@@ -1,6 +1,6 @@
 {
   "name": "@zarm-design/cli",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "description": "Cli Tools for Zarm Design Project",
   "bin": {
     "zarm": "./bin/zarm.js"
@@ -76,9 +76,9 @@
     "through2": "^3.0.1",
     "ts-jest": "^24.1.0",
     "url-loader": "^2.1.0",
-    "webpack": "^4.39.3",
+    "webpack": "^4.44.2",
     "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-dev-server": "^3.8.0",
+    "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2",
     "webpackbar": "^4.0.0"
   }
