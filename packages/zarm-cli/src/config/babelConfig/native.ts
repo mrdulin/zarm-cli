@@ -4,5 +4,6 @@ export default {
   ],
   plugins: [
     [require.resolve('@babel/plugin-proposal-decorators'), { legacy: true }],
+    require.resolve('@babel/plugin-proposal-optional-chaining'),
   ],
 };
