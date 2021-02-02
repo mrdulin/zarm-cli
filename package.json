@@ -7,7 +7,9 @@
     "lint:js": "eslint --ext .ts,.tsx,.js,.jsx packages",
     "lint:style": "stylelint \"packages/**/*.scss\" --syntax scss",
     "lint": "npm run lint:js",
-    "dev": "lerna run dev"
+    "build": "lerna run build",
+    "dev": "lerna run dev",
+    "release": "yarn run build && lerna publish --exact --conventional-commits"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
