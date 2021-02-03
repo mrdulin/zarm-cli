@@ -18,10 +18,13 @@ export default async ({ mode, host, port }: IDevelopmentConfig) => {
     const args = [
       require.resolve('@babel/cli/bin/babel'),
       'components',
-      '-d', 'rnkit/zarm',
+      '-d',
+      'rnkit/zarm',
       '-w',
-      '--extensions', '.ts,.tsx',
-      '--config-file', require.resolve('./config/babelConfig/base'),
+      '--extensions',
+      '.ts,.tsx',
+      '--config-file',
+      require.resolve('./config/babelConfig/base'),
     ];
 
     const { stderr, exitCode } = await execa('node', args);

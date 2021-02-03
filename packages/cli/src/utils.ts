@@ -1,6 +1,6 @@
 import path from 'path';
 import fs from 'fs';
-import { Configuration } from 'webpack';
+import { Configuration, Plugin, RuleSetRule } from 'webpack';
 
 export interface FileInfo {
   filePath?: string;
@@ -27,15 +27,15 @@ const getProjectPath = (dir = './'): string => {
 };
 
 export interface CustomConfig extends Configuration {
-  entries?: object;
-  banner?: string;
-  setBabelOptions?: (options) => void;
-  setRules?: (rules) => void;
-  setPlugins?: (plugins) => void;
+  entries: object;
+  banner: string;
+  setBabelOptions: (options) => void;
+  setRules: (rules: RuleSetRule[]) => void;
+  setPlugins: (plugins: Plugin[]) => void;
 }
 
 // 获取项目文件
-const getCustomConfig = (configFileName = 'zarm.config.js'): CustomConfig => {
+const getCustomConfig = (configFileName = 'zarm.config.js'): Partial<CustomConfig> => {
   const configPath = path.join(process.cwd(), configFileName);
   if (fs.existsSync(configPath)) {
     // eslint-disable-next-line import/no-dynamic-require
@@ -44,8 +44,4 @@ const getCustomConfig = (configFileName = 'zarm.config.js'): CustomConfig => {
   return {};
 };
 
-export {
-  fileTree,
-  getProjectPath,
-  getCustomConfig,
-};
+export { fileTree, getProjectPath, getCustomConfig };

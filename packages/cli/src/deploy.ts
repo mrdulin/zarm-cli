@@ -27,13 +27,15 @@ export const getProjectConfig = (config: Configuration) => {
     if (entries[key].entry) {
       config.entry[key] = entries[key].entry;
     }
-    config.plugins.push(new HtmlWebpackPlugin({
-      template: entries[key].template,
-      filename: `${key}.html`,
-      chunks: ['manifest', key],
-      favicon: entries[key].favicon,
-      inject: entries[key].inject !== false,
-    }));
+    config.plugins.push(
+      new HtmlWebpackPlugin({
+        template: entries[key].template,
+        filename: `${key}.html`,
+        chunks: ['manifest', key],
+        favicon: entries[key].favicon,
+        inject: entries[key].inject !== false,
+      }),
+    );
   });
 
   return webpackMerge(config, webpackConfig);
@@ -43,20 +45,22 @@ export default ({ outDir, pushGh, analyzer }: IDeployConfig) => {
   const config = getProjectConfig(getWebpackConfig('deploy'));
   config.output.path = getProjectPath(outDir);
 
-  pushGh && config.plugins.push(
-    new SentryCliPlugin({
-      release: version,
-      include: outDir,
-      sourceMapReference: false,
-    }),
-  );
+  pushGh &&
+    config.plugins.push(
+      new SentryCliPlugin({
+        release: version,
+        include: outDir,
+        sourceMapReference: false,
+      }),
+    );
 
-  analyzer && config.plugins.push(
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'static',
-      generateStatsFile: true,
-    }),
-  );
+  analyzer &&
+    config.plugins.push(
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        generateStatsFile: true,
+      }),
+    );
 
   webpack(config).run(() => {});
 };
