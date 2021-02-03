@@ -44,9 +44,7 @@ const umdBuild = async ({ mode, path, outDir, outZip, libraryName, analyzer }, b
 
   const { banner } = getCustomConfig();
   const bannerConfig = banner && {
-    plugins: [
-      new webpack.BannerPlugin(banner),
-    ],
+    plugins: [new webpack.BannerPlugin(banner)],
   };
 
   const umdTask = (type) => {
@@ -80,21 +78,27 @@ const umdBuild = async ({ mode, path, outDir, outZip, libraryName, analyzer }, b
     const list: FileInfo[] = [];
 
     fileTree(list, outDir);
-    jsZip.file(`${outDir}/manifest.json`, `{
+    jsZip.file(
+      `${outDir}/manifest.json`,
+      `{
       "id": "${libraryName}",
       "name": "${libraryName}",
       "description": "",
       "propsSchema": {
 
       }
-    }`);
+    }`,
+    );
     list.forEach(({ filePath }) => {
       jsZip.file(filePath, fs.readFileSync(filePath));
     });
 
-    jsZip.folder(outDir).generateAsync({ type: 'nodebuffer' }).then((content) => {
-      wirte(`${outZip}/${libraryName}.zip`, content);
-    });
+    jsZip
+      .folder(outDir)
+      .generateAsync({ type: 'nodebuffer' })
+      .then((content) => {
+        wirte(`${outZip}/${libraryName}.zip`, content);
+      });
   } else {
     await umdTask(mode);
   }
@@ -107,9 +111,12 @@ const buildLibrary = async ({ mode, path, ext, outFile, outDir, copyFiles, build
   const args = [
     require.resolve('@babel/cli/bin/babel'),
     path,
-    '--extensions', ext,
-    '--ignore', '**/*.d.ts',
-    '--config-file', require.resolve(`./config/babelConfig/${mode}`),
+    '--extensions',
+    ext,
+    '--ignore',
+    '**/*.d.ts',
+    '--config-file',
+    require.resolve(`./config/babelConfig/${mode}`),
   ];
 
   if (copyFiles) {

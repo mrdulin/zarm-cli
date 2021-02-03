@@ -32,9 +32,7 @@ export default ({ compName }: ITemplateConfig) => {
       { name: 'index.tsx', module: style.indexTemp() },
       { name: 'index.scss', module: style.indexScssTemp(compName) },
     ],
-    test: [
-      { name: 'index.test.jsx', module: test.indexTemp(compName) },
-    ],
+    test: [{ name: 'index.test.jsx', module: test.indexTemp(compName) }],
   };
 
   Object.keys(pages).forEach((key) => {
