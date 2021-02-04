@@ -30,7 +30,7 @@ jobs:
 
       - name: install
         if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn
+        run: yarn && npm run bootstrap
 
   lint:
     runs-on: ubuntu-latest
