@@ -45,22 +45,20 @@ export default ({ outDir, pushGh, analyzer }: IDeployConfig) => {
   const config = getProjectConfig(getWebpackConfig('deploy'));
   config.output.path = getProjectPath(outDir);
 
-  pushGh &&
-    config.plugins.push(
-      new SentryCliPlugin({
-        release: version,
-        include: outDir,
-        sourceMapReference: false,
-      }),
-    );
+  pushGh && config.plugins.push(
+    new SentryCliPlugin({
+      release: version,
+      include: outDir,
+      sourceMapReference: false,
+    }),
+  );
 
-  analyzer &&
-    config.plugins.push(
-      new BundleAnalyzerPlugin({
-        analyzerMode: 'static',
-        generateStatsFile: true,
-      }),
-    );
+  analyzer && config.plugins.push(
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'static',
+      generateStatsFile: true,
+    }),
+  );
 
   webpack(config).run(() => {});
 };
