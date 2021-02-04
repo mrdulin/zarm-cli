@@ -27,14 +27,12 @@ describe('template', () => {
       expect(syncMocked).toBeCalledWith('components/primary-button');
       expect(syncMocked).toBeCalledWith('components/primary-button/style');
       expect(syncMocked).toBeCalledWith('components/primary-button/__tests__');
-      expect(infoStub).toBeCalledWith('   \u001B[32mcreate\u001B[39m components/primary-button/index.tsx');
-      expect(infoStub).toBeCalledWith('   \u001B[32mcreate\u001B[39m components/primary-button/demo.md');
-      expect(infoStub).toBeCalledWith('   \u001B[32mcreate\u001B[39m components/primary-button/primary button.tsx');
-      expect(infoStub).toBeCalledWith('   \u001B[32mcreate\u001B[39m components/primary-button/style/index.tsx');
-      expect(infoStub).toBeCalledWith('   \u001B[32mcreate\u001B[39m components/primary-button/style/index.scss');
-      expect(infoStub).toBeCalledWith(
-        '   \u001B[32mcreate\u001B[39m components/primary-button/__tests__/index.test.jsx',
-      );
+      expect(infoStub).toBeCalledWith(expect.stringMatching('components/primary-button/index.tsx'));
+      expect(infoStub).toBeCalledWith(expect.stringMatching('components/primary-button/demo.md'));
+      expect(infoStub).toBeCalledWith(expect.stringMatching('components/primary-button/primary button.tsx'));
+      expect(infoStub).toBeCalledWith(expect.stringMatching('components/primary-button/style/index.tsx'));
+      expect(infoStub).toBeCalledWith(expect.stringMatching('components/primary-button/style/index.scss'));
+      expect(infoStub).toBeCalledWith(expect.stringMatching('components/primary-button/__tests__/index.test.jsx'));
       expect(infoStub).toBeCalledTimes(6);
       expect(openSyncMocked).toBeCalledTimes(6);
       expect(writeSyncMocked).toBeCalledTimes(6);

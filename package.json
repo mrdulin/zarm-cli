@@ -1,5 +1,8 @@
 {
   "name": "zarm-design",
+  "engines": {
+    "node": ">=12.13.0"
+  },
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
