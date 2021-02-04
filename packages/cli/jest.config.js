@@ -1,7 +1,7 @@
 const pkg = require('./package.json');
 
 module.exports = {
-  preset: 'ts-jest/presets/js-with-ts',
+  preset: 'ts-jest',
   displayName: {
     name: pkg.name,
     color: 'blue',
