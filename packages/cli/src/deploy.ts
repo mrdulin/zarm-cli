@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+/* eslint-disable import/no-dynamic-require */
 import webpack, { Configuration } from 'webpack';
 import webpackMerge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
@@ -6,8 +8,7 @@ import SentryCliPlugin from '@sentry/webpack-plugin';
 import getWebpackConfig from './config/webpackConfig';
 import { getProjectPath, getCustomConfig } from './utils';
 
-// eslint-disable-next-line
-const { name, version } = require(getProjectPath('package.json'));
+const { version } = require(getProjectPath('package.json'));
 
 export interface IDeployConfig {
   outDir: string;
@@ -45,7 +46,7 @@ export default ({ outDir, pushGh, analyzer }: IDeployConfig) => {
   const config = getProjectConfig(getWebpackConfig('deploy'));
   config.output.path = getProjectPath(outDir);
 
-  pushGh &&
+  if (pushGh) {
     config.plugins.push(
       new SentryCliPlugin({
         release: version,
@@ -53,14 +54,16 @@ export default ({ outDir, pushGh, analyzer }: IDeployConfig) => {
         sourceMapReference: false,
       }),
     );
+  }
 
-  analyzer &&
+  if (analyzer) {
     config.plugins.push(
       new BundleAnalyzerPlugin({
         analyzerMode: 'static',
         generateStatsFile: true,
       }),
     );
+  }
 
   webpack(config).run(() => {});
 };

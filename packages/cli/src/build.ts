@@ -189,6 +189,8 @@ export default async (options) => {
         label: `build ${mode}`,
       },
       success: {
+        badge: '●',
+        color: 'green',
         label: `build ${mode}`,
       },
     },

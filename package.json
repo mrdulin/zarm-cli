@@ -10,17 +10,18 @@
     "lint:js": "eslint --ext .ts,.tsx,.js,.jsx packages",
     "lint:style": "stylelint \"packages/**/*.scss\" --syntax scss",
     "lint": "npm run lint:js",
+    "lint:fix": "npm run lint:js -- --fix",
     "build": "lerna run build",
     "test": "lerna run test",
     "dev": "lerna run dev",
     "release": "yarn run build && lerna publish --exact --conventional-commits"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
     "@types/jest": "^26.0.20",
-    "@typescript-eslint/eslint-plugin": "3.10.1",
-    "@typescript-eslint/parser": "3.10.1",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
     "babel-eslint": "10.1.0",
     "eslint": "7.7.0",
     "eslint-config-za": "2.2.1",
@@ -39,5 +40,11 @@
     "stylelint-checkstyle-formatter": "0.1.2",
     "stylelint-config-za": "0.1.0",
     "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   }
 }
