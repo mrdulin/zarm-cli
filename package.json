@@ -49,7 +49,8 @@
     "stylelint-checkstyle-formatter": "0.1.2",
     "stylelint-config-za": "0.1.0",
     "ts-jest": "^26.5.0",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "rimraf": "^3.0.2"
   },
   "husky": {
     "hooks": {
@@ -57,7 +58,7 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "dependencies": {
-    "@zarm-design/cli": "file:packages/cli"
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }

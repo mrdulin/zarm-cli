@@ -29,8 +29,8 @@ jobs:
           key: node_modules-${{ hashFiles('**/package-temp-dir/yarn.lock') }}
 
       - name: install
-        # if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn && npm run bootstrap
+        if: steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn
 
   lint:
     runs-on: ubuntu-latest
