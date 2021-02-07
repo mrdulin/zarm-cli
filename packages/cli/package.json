@@ -1,6 +1,6 @@
 {
   "name": "@zarm-design/cli",
-  "version": "0.0.31",
+  "version": "0.0.30",
   "description": "Cli Tools for Zarm Design Project",
   "bin": {
     "zarm": "./bin/zarm.js"
