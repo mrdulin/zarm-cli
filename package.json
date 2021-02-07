@@ -1,5 +1,8 @@
 {
   "name": "zarm-design",
+  "engines": {
+    "node": ">=12.13.0"
+  },
   "private": true,
   "scripts": {
     "bootstrap": "lerna bootstrap",
@@ -7,17 +10,26 @@
     "lint:js": "eslint --ext .ts,.tsx,.js,.jsx packages",
     "lint:style": "stylelint \"packages/**/*.scss\" --syntax scss",
     "lint": "npm run lint:js",
-    "test": "lerna run test",
+    "lint:fix": "npm run lint:js -- --fix",
     "build": "lerna run build",
+    "test": "lerna run test",
     "dev": "lerna run dev",
+    "link-convert": "lerna link convert",
     "release": "yarn run build && lerna publish --exact --conventional-commits"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@types/html-webpack-plugin": "^3.2.4",
     "@types/jest": "^26.0.20",
-    "@typescript-eslint/eslint-plugin": "3.10.1",
-    "@typescript-eslint/parser": "3.10.1",
+    "@types/mkdirp": "^1.0.1",
+    "@types/signale": "^1.4.1",
+    "@types/webpack": "^4.41.26",
+    "@types/webpack-bundle-analyzer": "^3.9.0",
+    "@types/webpack-dev-server": "^3.11.1",
+    "@types/webpack-merge": "^4.1.5",
+    "@typescript-eslint/eslint-plugin": "^4.14.2",
+    "@typescript-eslint/parser": "^4.14.2",
     "babel-eslint": "10.1.0",
     "eslint": "7.10.0",
     "eslint-config-za": "2.2.2",
@@ -32,9 +44,20 @@
     "lerna": "^3.20.2",
     "lerna-changelog": "^1.0.0",
     "lint-staged": "^10.0.1",
+    "prettier": "^2.2.1",
     "stylelint": "13.8.0",
     "stylelint-checkstyle-formatter": "0.1.2",
-    "stylelint-config-za": "0.3.0",
-    "typescript": "4.0.2"
+    "stylelint-config-za": "0.1.0",
+    "ts-jest": "^26.5.0",
+    "typescript": "^4.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn run lint && yarn run test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "@zarm-design/cli": "file:packages/cli"
   }
 }

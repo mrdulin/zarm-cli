@@ -7,8 +7,7 @@ import template from './template';
 import test from './test';
 import pkg from '../package.json';
 
-commander
-  .version(String(pkg.version));
+commander.version(String(pkg.version));
 
 commander
   .command('build')

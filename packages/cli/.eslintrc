@@ -1,6 +1,8 @@
 {
   "root": true,
-  "extends": ["za/typescript"],
+  "extends": [
+    "za/typescript"
+  ],
   "env": {
     "jest": true
   }

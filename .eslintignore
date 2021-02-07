@@ -2,3 +2,5 @@ node_modules/
 lib/
 dist/
 es/
+bin/
+jest.config.js

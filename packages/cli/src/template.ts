@@ -10,7 +10,7 @@ export interface ITemplateConfig {
   compName: string;
 }
 
-const wirte = (dir: string, code: string) => {
+const write = (dir: string, code: string) => {
   fs.writeSync(fs.openSync(dir, 'w'), code);
 };
 
@@ -38,7 +38,7 @@ export default ({ compName }: ITemplateConfig) => {
   Object.keys(pages).forEach((key) => {
     sync(folder[key]);
     pages[key].forEach((page) => {
-      wirte(path.resolve(`./${folder[key]}`, page.name), page.module);
+      write(path.resolve(`./${folder[key]}`, page.name), page.module);
       console.info(`   ${chalk.green('create')} ${folder[key]}/${page.name}`);
     });
   });
