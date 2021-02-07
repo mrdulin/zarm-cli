@@ -6,7 +6,7 @@
     "publish": {
       "conventionalCommits": true,
       "allowBranch": ["master"],
-      "message": "chore(release): Publish"
+      "message": "chore(release): build new version"
     },
     "bootstrap": {
       "npmClientArgs": [
