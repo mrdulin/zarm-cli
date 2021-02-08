@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.32](https://github.com/JeromeLin/zarm-design-cli/compare/@zarm-design/cli@0.0.31...@zarm-design/cli@0.0.32) (2021-02-08)
+
+
+### Bug Fixes
+
+* setupFilesAfterEnv api update ([bc7b889](https://github.com/JeromeLin/zarm-design-cli/commit/bc7b889ee538404fee1b1c27e0cf6d2763add733))
+
+
+
+
+
 ## [0.0.31](https://github.com/JeromeLin/zarm-design-cli/compare/@zarm-design/cli@0.0.30...@zarm-design/cli@0.0.31) (2021-02-07)
 
 
