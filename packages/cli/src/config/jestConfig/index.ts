@@ -8,7 +8,7 @@ module.exports = {
   // setupFilesAfterEnv: [
   //   getProjectPath('scripts/jest/setup.js'),
   // ],
-  testRegex: '/__tests__/[^.]+\\.test(\\.jsx|[^d]\\.ts)$',
+  testRegex: '/__tests__/[^.]+\\.test(\\.(js|jsx|ts|tsx))$',
   transform: {
     '^.+\\.jsx?$': require.resolve('./preprocessor'),
     '^.+\\.tsx?$': require.resolve('ts-jest'),
@@ -22,6 +22,7 @@ module.exports = {
     '!components/*/PropsType.{ts,tsx}',
     '!components/**/style/*.{ts,tsx}',
     '!components/style/**/*',
+    '!components/**/__tests__/*',
   ],
   moduleFileExtensions: [
     'ts',
