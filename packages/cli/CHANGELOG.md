@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.34](https://github.com/JeromeLin/zarm-design-cli/compare/@zarm-design/cli@0.0.33...@zarm-design/cli@0.0.34) (2021-02-23)
+
+**Note:** Version bump only for package @zarm-design/cli
+
+
+
+
+
 ## [0.0.33](https://github.com/JeromeLin/zarm-design-cli/compare/@zarm-design/cli@0.0.32...@zarm-design/cli@0.0.33) (2021-02-22)
 
 **Note:** Version bump only for package @zarm-design/cli
