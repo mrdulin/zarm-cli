@@ -17,14 +17,10 @@ module.exports = {
   // setupFilesAfterEnv: [
   //   getProjectPath('scripts/jest/setup.js'),
   // ],
+  // testRegex: '/__tests__/[^.]+\\.test(\\.(js|jsx|ts|tsx))$',
   testRegex: '/__tests__/[^.]+\\.native.test(\\.(js|jsx|ts|tsx))$',
   collectCoverageFrom: [
-    'components/**/*.{ts,tsx}',
-    '!components/*/*.native.{ts,tsx}',
-    '!components/*/PropsType.{ts,tsx}',
-    '!components/**/style/*.{ts,tsx}',
-    '!components/style/**/*',
-    '!components/**/__tests__/*',
+    'components/**/*.native.{ts,tsx}',
   ],
   moduleFileExtensions: [
     'ts',
