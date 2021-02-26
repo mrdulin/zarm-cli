@@ -47,6 +47,7 @@ commander
   .option('-u, --update-snapshot', '是否更新快照')
   .option('-c, --coverage', '是否生成覆盖率报告')
   .option('-s, --setupFilesAfterEnv <file>', '测试前装载的脚本文件')
+  .option('-t, --testFile <file>', '执行单个测试文件')
   .action(test);
 
 commander

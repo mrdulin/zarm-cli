@@ -36,4 +36,20 @@ describe('test', () => {
       { stdio: 'inherit' },
     );
   });
+
+  it('should run test for a single file', () => {
+    testExecutor({ coverage: true, updateSnapshot: true, testFile: './components/__tests__/index.test.js' });
+    expect(execaMocked).toBeCalledWith(
+      'node',
+      expect.arrayContaining([
+        expect.stringContaining('jest'),
+        expect.stringContaining('--config='),
+        expect.stringContaining('--setupFilesAfterEnv='),
+        expect.stringContaining('-u'),
+        expect.stringContaining('--coverage'),
+        expect.stringContaining('./components/__tests__/index.test.js'),
+      ]),
+      { stdio: 'inherit' },
+    );
+  });
 });
